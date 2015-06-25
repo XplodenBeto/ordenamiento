@@ -1,6 +1,6 @@
 # Algoritmos de ordenamiento
-## Lista de algoritmos
 -------
+## Lista de algoritmos
 1. Burbuja
 2. Inserción (pendiente)
 3. Selección (pendiente)
