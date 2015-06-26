@@ -6,14 +6,12 @@
 #include <stdio.h>
 #define SIZE 5
 
+void selection_sort(int [], int);
+
 int main (void)
 {
 	int array[SIZE] = {10, 43, 9, 7, 34};
-	int position;
 	int iter;
-	int inner;
-	int swap;
-	int temp;
 
 	puts("Antes de ordenar");
 
@@ -22,15 +20,34 @@ int main (void)
 
 	putchar('\n');
 
+	selection_sort(array, SIZE);
+
+	puts("Despues de ordenar");
+
+	for(iter = 0; iter < SIZE; iter++)
+		printf("%d ", array[iter]);
+
+	putchar('\n');
+
+	return 0;
+}
+
+void selection_sort(int array[], int size)
+{
+	int position;
+	int inner;
+	int iter;
+	int swap;
+	int temp;
 
 	// Itera a travez de todo el arreglo
-	for (iter = 0; iter < SIZE; iter++) {
+	for (iter = 0; iter < size; iter++) {
 		// Almacena la posición actual
 		position = iter;
 
 		// Itera sobre el resto del arreglo,
 		// sin tomar en cuenta la posición actual
-		for (inner = iter + 1; inner < SIZE; inner++) {
+		for (inner = iter + 1; inner < size; inner++) {
 			// Si el valor en la posición actual es mayor
 			// que algun otro valor posterior se cambia
 			// de posición
@@ -46,13 +63,4 @@ int main (void)
 			array[position] = swap;
 		}
 	}
-
-	puts("Despues de ordenar");
-
-	for(iter = 0; iter < SIZE; iter++)
-		printf("%d ", array[iter]);
-
-	putchar('\n');
-
-	return 0;
 }

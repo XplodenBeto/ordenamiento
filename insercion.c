@@ -6,13 +6,12 @@
 #include <stdio.h>
 #define SIZE 5
 
+void insertion_sort(int [], int);
+
 int main(void)
 {
 	int array[SIZE] = {10, 43, 9, 7, 34};
 	int iter;
-	int inner;
-	int swap;
-	int temp;
 
 	puts("Antes de ordenar");
 
@@ -21,8 +20,26 @@ int main(void)
 
 	putchar('\n');
 
+	insertion_sort(array, SIZE);
+
+	puts("Despues de ordenar");
+
+	for(iter = 0; iter < SIZE; iter++)
+		printf("%d ", array[iter]);
+
+	putchar('\n');
+
+	return 0;
+}
+
+void insertion_sort(int array[], int size)
+{
+	int iter;
+	int temp;
+	int swap;
+
 	// Itera a travez de todo el arreglo
-	for (iter = 1; iter <= SIZE; iter++) {
+	for (iter = 1; iter <= size; iter++) {
 		// Guarda la posición actual en iter
 		temp = iter;
 
@@ -38,13 +55,4 @@ int main(void)
 			temp--;
 		}
 	}
-
-	puts("Despues de ordenar");
-
-	for(iter = 0; iter < SIZE; iter++)
-		printf("%d ", array[iter]);
-
-	putchar('\n');
-
-	return 0;
 }
